@@ -1,6 +1,6 @@
 CXX = g++
-CXXFLAGS = -std=c++23 -Wall -pedantic -Wextra -Wfloat-equal -Wshadow -Wconversion -Wunreachable-code
-LIBS = -O2
+CXXFLAGS = -O2 -fsanitize=address -std=c++23 -Wall -pedantic -Wextra -Wfloat-equal -Wshadow -Wconversion -Wunreachable-code
+LIBS =
 
 SRCDIR = source
 INCDIR = include
