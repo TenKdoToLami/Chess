@@ -19,6 +19,8 @@ void Parser::parse()
         else
             Piece = "p";
         to = input;
+        
+        return;
     }
 
 

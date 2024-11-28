@@ -1,11 +1,17 @@
 #pragma once
 
+
 #include "Position.h"
-#include "Piece.h"
+
+
+#include <vector>
 
 
 class Board
 {
+private:
+    char * grid[8][8];
+
 public:
     Board();
 
@@ -13,12 +19,25 @@ public:
     bool MovePiece(const Position & from, const Position & to);
     
     
-    Piece * GetPieceAt(const Position &pos);
+    char * GetPieceAt(const Position &pos);
     
     
     void Display();
 
 
 private:
-    Piece * grid[8][8];
+
+    std::vector <Position> legalKnightMoves(const Position & originalPosition) const;
+
+    // Y X
+    const int knightTable[8][2] =
+    {
+        /*-2,+2*/{+1, +2}, /*+2, 0*/{+2, +1},/*+2,+2*/
+        {+1, -2},                           {+1, +2},
+        /*0, -2*/          /* 0, 0*/         /*0,+2*/
+        {-1, -2},                           {-1, +2},
+        /*-2,-2*/{-2, -1}, /*-2, 0*/{-2, +1},/*-2,+2*/
+
+    };
+
 };
